@@ -1,0 +1,25 @@
+.form-area input {
+    margin-top: 20px;
+    margin-bottom: 5px;
+    height: 40px;
+    width: 290px;
+    border-radius: 7px;
+    padding-left: 10px;
+    outline: none;
+    box-shadow: 5px 5px 10px 1px rgba(184,184,255,0.5);
+
+}
+.form-area textarea{
+    margin-top: 20px;
+    margin-bottom: 5px;
+    height: 80px;
+    width: 290px;
+    border-radius: 7px;
+    padding-left: 10px;
+    outline: none;
+}
+.form-submit-btn input{
+    background: #B8B8FF;
+    color: #EDF2F4;
+    cursor: pointer;
+}
