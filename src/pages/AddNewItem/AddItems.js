@@ -3,13 +3,13 @@ import { useForm } from "react-hook-form";
 import './AddItem.css';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import { useNavigate } from 'react-router-dom';
 
 const AddItems = () => {
     const { register, handleSubmit } = useForm();
 
+    const navigate = useNavigate();
     const [user, loading, error] = useAuthState(auth);
-
-
 
     const onSubmit = data => {
         console.log(data);
@@ -22,6 +22,7 @@ const AddItems = () => {
         })
             .then(res => res.json())
             .then(result => console.log(result))
+        navigate('/')
     };
     return (
         <div className=' w-3/5 mx-auto mt-5'>

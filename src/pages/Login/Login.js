@@ -6,6 +6,9 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Login = () => {
+    const location = useLocation();
+    const navigate = useNavigate();
+    let from = location?.state?.from?.pathname || '/';
     // eslint-disable-next-line no-unused-vars
     const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth)
     const { register, handleSubmit } = useForm();
@@ -14,21 +17,11 @@ const Login = () => {
         console.log(formData)
         await signInWithEmailAndPassword(email, password)
         const { data } = await axios.post('http://localhost:5000/login', { email });
+        localStorage.setItem('accessKey', data.accessKey)
+        navigate(from, {replace: true})
         console.log(data)
 
     };
-
-    const location = useLocation();
-    const navigate = useNavigate();
-    let from = location?.state?.from?.pathname || '/';
-
-    useEffect(() => {
-        if (user) {
-            navigate(from, {replace: true})
-        }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[user])
-
 
     let errormsg = '';
     if (error) {
