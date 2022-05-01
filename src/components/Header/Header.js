@@ -21,8 +21,16 @@ const Header = () => {
                 </div>
                 <div className="nav-links-area text-base">
                     <ul className='flex uppercase leading-8'>
+                        {user ? <>
                         <li><Link to='/' className='mx-2'>Home</Link></li>
                         <li><Link to='/' className='mx-2'>Blogs</Link></li>
+                        <li><Link to='/' className='mx-2'>Manage items</Link></li>
+                        <li><Link to='/' className='mx-2'>Add items</Link></li>
+                        <li><Link to='/' className='mx-2'>My items</Link></li>
+                        </> : <>
+                        <li><Link to='/' className='mx-2'>Home</Link></li>
+                        <li><Link to='/' className='mx-2'>Blogs</Link></li>
+                        </>}
                     </ul>
                 </div>
                 <div className="auth-area text-base leading-8">

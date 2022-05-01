@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
-import auth from '../../../firebase.init';
+import auth from '../../firebase.init';
 import { useNavigate } from 'react-router-dom';
 
 const Register = () => {

@@ -1,10 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header';
-import AddItems from './components/pages/AddNewItem/AddItems';
-import Home from './components/pages/Home/Home';
-import Login from './components/pages/Login/Login';
-import Register from './components/pages/Register/Register';
+import AddItems from './pages/AddNewItem/AddItems';
+import Home from './pages/Home/Home';
+import Login from './pages/Login/Login';
+import Register from './pages/Register/Register';
 
 function App() {
   return (
