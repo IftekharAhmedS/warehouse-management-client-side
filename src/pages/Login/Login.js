@@ -18,10 +18,13 @@ const Login = () => {
         await signInWithEmailAndPassword(email, password)
         const { data } = await axios.post('http://localhost:5000/login', { email });
         localStorage.setItem('accessKey', data.accessKey)
-        navigate(from, {replace: true})
+        
         console.log(data)
 
     };
+    if (user) {
+        navigate(from, {replace: true})
+    }
 
     let errormsg = '';
     if (error) {

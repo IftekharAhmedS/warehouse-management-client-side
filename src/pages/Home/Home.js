@@ -1,10 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import ItemCards from '../../components/ItemCards/ItemCards';
 import useGetItems from '../../hooks/useGetItems';
 import './Home.css';
 
 const Home = () => {
     const [items] = useGetItems();
+    const navigate = useNavigate();
     return (
         <div>
             <div className="banner-area"></div>
@@ -14,7 +16,7 @@ const Home = () => {
                     {items.map(item => <ItemCards key={item._id} data={item}></ItemCards>).slice(0,6)}
                 </div>
                 <div className="manage-inv-btn text-center">
-                    <button className='bg-[#2B2D42] text-[#F8F7FF] py-3 px-5 my-3 rounded'>Manage Inventory</button>
+                    <button onClick={() => navigate('/manage-inventory')} className='bg-[#2B2D42] text-[#F8F7FF] py-3 px-5 my-3 rounded'>Manage Inventory</button>
                 </div>
             </div>
         </div>
