@@ -44,10 +44,10 @@ const Register = () => {
     }
     return (
         <div>
-            <div className=' w-3/5 mx-auto mt-5'>
+            <div className=' w-4/5 mx-auto mt-5'>
             <h1 className='text-3xl text-center'>Register</h1>
             <div className="items-form flex justify-center">
-            <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col form-area'>
+            <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col form-area w-4/12 '>
                 <input placeholder='Username' required {...register("username")} />
                 <input placeholder='Email address' type='email' required {...register("email")} />
                 <input placeholder='Password' required type='password' {...register("password")} />

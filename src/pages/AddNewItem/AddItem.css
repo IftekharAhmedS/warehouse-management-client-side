@@ -1,19 +1,19 @@
 .form-area input {
     margin-top: 20px;
     margin-bottom: 5px;
-    height: 40px;
-    width: 290px;
+    height: 50px;
+    width: 100%;
     border-radius: 7px;
     padding-left: 10px;
     outline: none;
     box-shadow: 5px 5px 10px 1px rgba(184,184,255,0.5);
 
 }
+
 .form-area textarea{
     margin-top: 20px;
     margin-bottom: 5px;
-    height: 80px;
-    width: 290px;
+    height: 120px;
     border-radius: 7px;
     padding-left: 10px;
     outline: none;

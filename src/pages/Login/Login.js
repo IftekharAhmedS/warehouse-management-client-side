@@ -11,6 +11,10 @@ const Login = () => {
     let from = location?.state?.from?.pathname || '/';
     // eslint-disable-next-line no-unused-vars
     const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth)
+
+    if(user){
+        navigate(from, {replace: true})
+    }
     const { register, handleSubmit } = useForm();
     const onSubmit = async formData => {
         const { email, password } = formData;
@@ -22,10 +26,6 @@ const Login = () => {
         console.log(data)
 
     };
-    if (user) {
-        navigate(from, {replace: true})
-    }
-
     let errormsg = '';
     if (error) {
         if (error.message === 'Firebase: Error (auth/user-not-found).') {
@@ -37,10 +37,10 @@ const Login = () => {
     }
     return (
         <div>
-            <div className=' w-3/5 mx-auto mt-5'>
+            <div className=' w-4/5 mx-auto mt-5'>
             <h1 className='text-3xl text-center'>Login</h1>
             <div className="items-form flex justify-center">
-            <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col form-area'>
+            <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col form-area w-4/12 '>
                 <input placeholder='Email' type='email' required {...register("email")} />
                 <input placeholder='Password' type='password' required {...register("password")} />
                 <p className='text-[#F87060]'>{ errormsg }</p>

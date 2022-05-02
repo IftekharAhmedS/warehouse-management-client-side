@@ -25,17 +25,17 @@ const AddItems = () => {
         navigate('/manage-inventory')
     };
     return (
-        <div className=' w-3/5 mx-auto mt-5'>
+        <div className=' w-4/5 mx-auto mt-5'>
             <h1 className='text-3xl text-center'>Add a new item</h1>
             <div className="items-form flex justify-center">
-            <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col add-item-form form-area'>
+            <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col add-item-form form-area w-4/5 '>
                 <input placeholder='Name' required {...register("productName")} />
                 <input placeholder='Price' required {...register("productPrice")} />
                 <input placeholder='Supplier' required {...register("productSupplier")} />
                 <input placeholder='Image URL' required {...register("productImgURL")} />
                 <input placeholder='Quantity' required {...register("productQTY")} />
-                <input placeholder='Your email' value={user.email} readOnly {...register("email")} />
-                <textarea placeholder='Description' required {...register("productDescription")}></textarea>
+                <input placeholder='Your email' style={{opacity: '75%'}} value={user.email} readOnly {...register("email")} />
+                <textarea placeholder='Type a short description of the product' required {...register("productDescription")}></textarea>
                 <div className="add-item-submit form-submit-btn">
                     <input type='submit' value='Add Item'></input>
                 </div>
