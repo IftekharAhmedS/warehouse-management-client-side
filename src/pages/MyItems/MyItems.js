@@ -30,7 +30,7 @@ const MyItems = () => {
                 <button onClick={()=> navigate('/add-items')} className='bg-[#7FB069] text-[#F8F7FF] py-3 px-5 my-3 rounded'>Add New Item</button>
             </div>
             <div className="item-cards grid grid-cols-3 gap-6 mx-auto w-10/12">
-                {items.map(item => <ItemCards key={item._id} data={item}></ItemCards>)}
+                {items.map(item => <ItemCards key={item._id} data={item} delete={true}></ItemCards>)}
             </div>
         </div>
     );

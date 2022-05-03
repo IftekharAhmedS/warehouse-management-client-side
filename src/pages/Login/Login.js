@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { MoonLoader } from 'react-spinners';
 
 const Login = () => {
     const location = useLocation();
@@ -12,9 +13,17 @@ const Login = () => {
     // eslint-disable-next-line no-unused-vars
     const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth)
 
+
+    useEffect(() => { 
+    if (loading) {
+        <MoonLoader size={50}></MoonLoader>
+    }
     if(user){
         navigate(from, {replace: true})
     }
+
+     // eslint-disable-next-line react-hooks/exhaustive-deps
+     },[user])
     const { register, handleSubmit } = useForm();
     const onSubmit = async formData => {
         const { email, password } = formData;

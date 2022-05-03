@@ -1,7 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const ItemCards = (props) => {
-    const { productName, productImgURL, productPrice, productDescription, productQTY, productSupplier } = props.data;
+    const { _id, productName, productImgURL, productPrice, productDescription, productQTY, productSupplier } = props.data;
+    const deleteBtn = props.delete;
+    const navigate = useNavigate();
+    const itemDetails = id => {
+        navigate(`/item/${id}`)
+    }
     return (
         <div className=' border px-4 py-3 text-center'>
             <div className="item-name text-center text-2xl">
@@ -25,7 +31,8 @@ const ItemCards = (props) => {
                 <p className=' font-semibold'>Supplier: { productSupplier }</p>
             </div>
             <div className="item-btn">
-                <button className='bg-[#2B2D42] text-[#F8F7FF] py-3 px-5 my-3 rounded'>Manage Stock</button>
+                <button className='bg-[#2B2D42] text-[#F8F7FF] py-3 px-5 my-3 rounded' onClick={()=> itemDetails(_id) }>Manage Stock</button>
+                {deleteBtn && <button className='bg-[#F87060] text-[#F8F7FF] py-3 px-5 my-3 rounded ml-3'>Delete</button>}
             </div>
         </div>
     );
