@@ -4,6 +4,7 @@ import './AddItem.css';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { useNavigate } from 'react-router-dom';
+import swal from 'sweetalert';
 
 const AddItems = () => {
     const { register, handleSubmit } = useForm();
@@ -23,6 +24,11 @@ const AddItems = () => {
             .then(res => res.json())
             .then(result => console.log(result))
         navigate('/manage-inventory')
+        swal({
+            title: "Item has been added",
+            icon: "success",
+            button: "Okay!",
+          });
     };
     return (
         <div className=' w-4/5 mx-auto mt-5'>
@@ -33,7 +39,7 @@ const AddItems = () => {
                 <input placeholder='Price' required {...register("productPrice")} />
                 <input placeholder='Supplier' required {...register("productSupplier")} />
                 <input placeholder='Image URL' required {...register("productImgURL")} />
-                <input placeholder='Quantity' required {...register("productQTY")} />
+                <input placeholder='Quantity' type='number' required {...register("productQTY")} />
                 <input placeholder='Your email' style={{opacity: '75%'}} value={user.email} readOnly {...register("email")} />
                 <textarea placeholder='Type a short description of the product' required {...register("productDescription")}></textarea>
                 <div className="add-item-submit form-submit-btn">

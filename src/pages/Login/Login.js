@@ -5,6 +5,7 @@ import auth from '../../firebase.init';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { MoonLoader } from 'react-spinners';
+import swal from 'sweetalert';
 
 const Login = () => {
     const location = useLocation();
@@ -19,7 +20,12 @@ const Login = () => {
         <MoonLoader size={50}></MoonLoader>
     }
     if(user){
-        navigate(from, {replace: true})
+        navigate(from, { replace: true })
+        swal({
+            title: "You are now logged in!",
+            icon: "success",
+            button: "Okay!",
+          });
     }
 
      // eslint-disable-next-line react-hooks/exhaustive-deps

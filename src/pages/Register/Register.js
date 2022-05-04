@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { useNavigate } from 'react-router-dom';
+import swal from 'sweetalert';
 
 const Register = () => {
     const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth)
@@ -33,6 +34,11 @@ const Register = () => {
     useEffect(() => {
         if (user) {
             navigate('/')
+        swal({
+            title: "Your account has been created successfully",
+            icon: "success",
+            button: "Okay!",
+          });
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[user])
