@@ -61,10 +61,10 @@ const Login = () => {
     }
     return (
         <div>
-            <div className=' w-4/5 mx-auto mt-5'>
+            <div className=' w-4/5 mx-auto my-5'>
             <h1 className='text-3xl text-center'>Login</h1>
             <div className="items-form flex justify-center">
-            <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col form-area w-4/12 '>
+            <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col form-area sm:w-4/12 w-4/5'>
                 <input placeholder='Email' type='email' required {...register("email")} />
                 <input placeholder='Password' type='password' required {...register("password")} />
                 <p className='text-[#F87060]'>{ errormsg }</p>

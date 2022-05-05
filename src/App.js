@@ -4,11 +4,13 @@ import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import RequireAuth from './components/RequireAuth/RequireAuth';
 import AddItems from './pages/AddNewItem/AddItems';
+import Blogs from './pages/Blogs/Blogs';
 import Home from './pages/Home/Home';
 import ItemInfo from './pages/ItemInfo/ItemInfo';
 import Login from './pages/Login/Login';
 import ManageInventory from './pages/ManageInventory/ManageInventory';
 import MyItems from './pages/MyItems/MyItems';
+import NotFound from './pages/NotFound/NotFound';
 import Register from './pages/Register/Register';
 import ResetPassword from './pages/ResetPassword/ResetPassword';
 
@@ -25,6 +27,8 @@ function App() {
         <Route path='/item/:id' element={<RequireAuth><ItemInfo></ItemInfo></RequireAuth>}></Route>
         <Route path='/manage-inventory' element={<RequireAuth><ManageInventory></ManageInventory></RequireAuth>}></Route>
         <Route path='/reset-password' element={<ResetPassword></ResetPassword>}></Route>
+        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
     </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
@@ -12,6 +12,10 @@ const Header = () => {
         signOut(auth)
     }
 
+    const [active, setActive] = useState('false')
+    const navToggle = () => {
+        setActive(!active)
+    }
 
     return (
         <header className='bg-[#102542] text-[#F8F7FF] py-4'>
@@ -20,16 +24,23 @@ const Header = () => {
                     <Link to='/'>Mobile Dealer</Link>
                 </div>
                 <div className="nav-links-area text-base">
-                    <ul className='flex uppercase leading-8'>
+                    <div className="flex justify-center">
+                    <button onClick={navToggle} className='sm:hidden'>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                    </div>
+                    <ul className={`flex uppercase leading-8 sm:flex flex-col sm:flex-row sm:mr-0 w-full ${active ? 'hidden': 'block'} `}>
                         {user ? <>
                         <li><Link to='/' className='mx-2'>Home</Link></li>
-                        <li><Link to='/' className='mx-2'>Blogs</Link></li>
+                        <li><Link to='/blogs' className='mx-2'>Blogs</Link></li>
                         <li><Link to='/manage-inventory' className='mx-2'>Manage items</Link></li>
                         <li><Link to='/add-items' className='mx-2'>Add items</Link></li>
                         <li><Link to='/my-items' className='mx-2'>My items</Link></li>
                         </> : <>
                         <li><Link to='/' className='mx-2'>Home</Link></li>
-                        <li><Link to='/' className='mx-2'>Blogs</Link></li>
+                        <li><Link to='/blogs' className='mx-2'>Blogs</Link></li>
                         </>}
                     </ul>
                 </div>

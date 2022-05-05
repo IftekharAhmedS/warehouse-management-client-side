@@ -31,7 +31,7 @@ const AddItems = () => {
           });
     };
     return (
-        <div className=' w-4/5 mx-auto mt-5'>
+        <div className=' w-4/5 mx-auto my-5'>
             <h1 className='text-3xl text-center'>Add a new item</h1>
             <div className="items-form flex justify-center">
             <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col add-item-form form-area w-4/5 '>

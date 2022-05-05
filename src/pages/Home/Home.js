@@ -23,7 +23,7 @@ const Home = () => {
     return (
         <div>
             <div className="banner-area"></div>
-                <div className="information-area flex container mx-auto my-8">
+                <div className="information-area flex flex-col sm:flex-row text-center sm:text-left container mx-auto my-8">
                     <div className="information-image">
                         <img src="https://www.mobiledokan.com/wp-content/uploads/2022/04/Samsung-Galaxy-A73-teaser.jpg" alt="mobile banner" />
                     </div>
@@ -45,7 +45,7 @@ const Home = () => {
                 </div>
             <div className="inventory-items-area mt-5">
                 <h1 className='text-3xl text-center my-5'>Inventory Items</h1>
-                <div className="item-cards grid grid-cols-3 gap-6 mx-auto w-10/12">
+                <div className="item-cards grid grid-cols-1 sm:grid-cols-3 gap-6 mx-auto w-10/12">
                     {items.map(item => <ItemCards key={item._id} data={item} delete={false} ></ItemCards>).slice(0,6)}
                 </div>
                 <div className="manage-inv-btn text-center">
@@ -53,8 +53,8 @@ const Home = () => {
                 </div>
             </div>
                 <h1 className='font-semibold text-3xl my-5 text-center'>Latest News</h1>
-            <div className="news-area flex container mx-auto mb-12">
-                <div className="news-card">
+            <div className="news-area flex flex-col sm:flex-row container sm:container mx-auto  mb-12">
+                <div className="news-card mx-6">
                     <div className="news-image">
                         <img src="https://www.mobiledokan.com/wp-content/uploads/2022/04/Walton-Primo-GH11-teaser.jpg" alt="walton" />
                     </div>
@@ -65,7 +65,7 @@ const Home = () => {
                         <p>It looks like any other decent waterdrop-notch phone on the outside. There is nothing unique about the design but it’s not too bad either. We have a 6.52 inches HD+ IPS display, 13MP main back camera, 5 MP front camera, 4200 mAh battery, a back-mounted fingerprint sensor and a dedicated MicroSD slot. These are features that you would expect at a low-budget phone.</p>
                     </div>
                 </div>
-                <div className="news-card mx-6">
+                <div className="news-card mx-6 sm:mx-6 my-3">
                     <div className="news-image">
                         <img src="https://www.mobiledokan.com/wp-content/uploads/2022/04/Xiaomi-12-Pro-teaser.jpg" alt="walton" />
                     </div>
@@ -76,7 +76,7 @@ const Home = () => {
                         <p>Now, let’s come back to Xiaomi 12 Pro. Firstly, the design with catch your eyes right away. It looks minimal, futuristic and very premium. There is a glass back and aluminum frame so, it’s also premium in terms of material. There is no waterproof certification which is one of the major disadvantages of this phone. The display comes with WQHD+ resolution, LTPO AMOLED technology and 120Hz refresh rate. That’s another level of true-flagship experience and there is no room for complaints here. Plus it is protected by a strong Gorilla Glass Victus.</p>
                     </div>
                 </div>
-                <div className="news-card">
+                <div className="news-card mx-6">
                     <div className="news-image">
                         <img src="https://www.mobiledokan.com/wp-content/uploads/2022/04/Xiaomi-Redmi-10A-teaser.jpg" alt="walton" />
                     </div>
