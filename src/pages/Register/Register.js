@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
+import { Box, CircularProgress } from '@mui/material';
 
 const Register = () => {
     const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true})
@@ -48,6 +49,13 @@ const Register = () => {
             emailError = 'Account already exists with this email';
         }
     }
+    if (loading) {
+        return (
+            <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: '150px' }}>
+              <CircularProgress />
+            </Box>
+          );
+    }
     return (
         <div>
             <div className=' w-4/5 mx-auto mt-5'>
@@ -63,8 +71,12 @@ const Register = () => {
                 <div className="form-submit-btn">
                     <input type='submit' value='Register'></input>
                 </div>
+                <p>Already have an account? <Link to='/login' className=' text-blue-400'>login</Link> instead</p>
             </form>
-            </div>
+                </div>
+                <div className="social-account-area flex justify-center">
+                    <button className=' p-3 rounded mt-4 bg-yellow-300'>Google Signin</button>
+                </div>
         </div>
         </div>
     );

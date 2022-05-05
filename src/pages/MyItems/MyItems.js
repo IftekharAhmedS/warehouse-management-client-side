@@ -11,7 +11,7 @@ const MyItems = () => {
     const [items, setItems] = useState([]);
     useEffect(() => {
         const getItems = async () => {
-            const url = `http://localhost:5000/filtered-items?email=${user.email}`;
+            const url = `https://warehouse-manage-api.herokuapp.com/filtered-items?email=${user.email}`;
             const { data } = await axios.get(url, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessKey')}`
@@ -33,7 +33,7 @@ const MyItems = () => {
           })
           .then(async (willDelete) => {
               if (willDelete) {
-                  const { data } = await axios.delete(`http://localhost:5000/items/${id}`, {
+                  const { data } = await axios.delete(`https://warehouse-manage-api.herokuapp.com/items/${id}`, {
                     headers: {
                         authorization: `Bearer ${localStorage.getItem('accessKey')}`
                     }

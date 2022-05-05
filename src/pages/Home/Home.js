@@ -1,14 +1,24 @@
 import { CircularProgress } from '@mui/material';
+import { Box } from '@mui/system';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
-import swal from 'sweetalert';
 import ItemCards from '../../components/ItemCards/ItemCards';
+import auth from '../../firebase.init';
 import useGetItems from '../../hooks/useGetItems';
 import './Home.css';
 
 const Home = () => {
     const [items] = useGetItems();
     const navigate = useNavigate();
+    const [user, loading, error] = useAuthState(auth);
+    if (loading) {
+        return (
+            <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: '150px' }}>
+              <CircularProgress />
+            </Box>
+          );
+    }
    
     return (
         <div>

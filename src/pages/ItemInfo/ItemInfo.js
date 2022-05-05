@@ -15,7 +15,7 @@ const ItemInfo = () => {
     const [itemInfo, setItemInfo] = useState({});
     useEffect(() => {
         const getItemInfo = async () => {
-            const url = `http://localhost:5000/items/${id}`
+            const url = `https://warehouse-manage-api.herokuapp.com/items/${id}`
             const { data } = await axios.get(url, {
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('accessKey')}`
@@ -27,7 +27,7 @@ const ItemInfo = () => {
     }, [id])
 
     const handleDecrease = async () => {
-        const url = `http://localhost:5000/items/${id}`;
+        const url = `https://warehouse-manage-api.herokuapp.com/items/${id}`;
         const itemQty = parseInt(productQTY)
         const updatedItem = {...itemInfo, productQTY: itemQty - 1}
         const { data } = await axios.put(url,
@@ -43,7 +43,7 @@ const ItemInfo = () => {
 
     const onSubmit = async itemData => {
         console.log(itemData);
-        const url = `http://localhost:5000/items/${id}`;
+        const url = `https://warehouse-manage-api.herokuapp.com/items/${id}`;
         const itemQty = parseInt(productQTY)
         const updatedQty = parseInt(itemData.productQTY);
         const updatedItem = {...itemInfo, productQTY: itemQty + updatedQty}

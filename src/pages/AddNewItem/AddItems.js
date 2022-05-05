@@ -14,7 +14,7 @@ const AddItems = () => {
 
     const onSubmit = data => {
         console.log(data);
-        fetch('http://localhost:5000/items', {
+        fetch('https://warehouse-manage-api.herokuapp.com/items', {
             method: 'Post',
             headers: {
                 'content-type': 'application/json',

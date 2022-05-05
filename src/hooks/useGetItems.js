@@ -6,7 +6,7 @@ const useGetItems = () => {
     
     useEffect(() => {
         const getItems = async () => {
-            const { data } = await axios.get('http://localhost:5000/items', {
+            const { data } = await axios.get('https://warehouse-manage-api.herokuapp.com/items', {
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('accessKey')}`
                 }
