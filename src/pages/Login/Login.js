@@ -71,6 +71,7 @@ const Login = () => {
                 <div className="form-submit-btn">
                     <input type='submit' value='Login'></input>
                 </div>
+                    <p><Link to='/reset-password' className=' text-blue-400'>Forget password?</Link></p>
                     <p>Or <Link to='/register' className=' text-blue-400'>Create an account</Link></p>
             </form>
             </div>

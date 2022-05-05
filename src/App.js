@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import RequireAuth from './components/RequireAuth/RequireAuth';
 import AddItems from './pages/AddNewItem/AddItems';
@@ -25,6 +26,7 @@ function App() {
         <Route path='/manage-inventory' element={<RequireAuth><ManageInventory></ManageInventory></RequireAuth>}></Route>
         <Route path='/reset-password' element={<ResetPassword></ResetPassword>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }
