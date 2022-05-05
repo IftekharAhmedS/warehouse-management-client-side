@@ -19,10 +19,10 @@ const ResetPassword = () => {
     }
     return (
         <div>
-            <div className=' w-4/5 mx-auto mt-5'>
+            <div className=' w-4/5 mx-auto mt-16 mb-64'>
             <h1 className='text-3xl text-center'>Reset your password</h1>
             <div className="items-form flex justify-center">
-            <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col form-area w-4/12 '>
+            <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col form-area w-4/5 sm:w-4/12 '>
                 <input placeholder='Email' type='email' required {...register("email")} />
                 <div className="form-submit-btn">
                     <input type='submit' value='Send email'></input>
