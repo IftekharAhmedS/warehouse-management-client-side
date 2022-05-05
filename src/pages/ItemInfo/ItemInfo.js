@@ -61,8 +61,8 @@ const ItemInfo = () => {
     const {productName, productDescription, productImgURL, productPrice, productQTY, productSupplier, _id, email } = itemInfo;
 
     return (
-        <div className='flex container mx-auto mt-4'>
-            <div className="item-image-area w-4/12">
+        <div className='flex flex-col sm:flex-row container mx-auto mt-4'>
+            <div className="item-image-area sm:w-4/12 w-full">
                 <img src={ productImgURL } alt={ productName } />
             </div>
             <div className="item-info-area ml-5 w-6/12">
