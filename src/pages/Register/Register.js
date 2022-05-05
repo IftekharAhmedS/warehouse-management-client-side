@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 
 const Register = () => {
-    const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth)
+    const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true})
     const [updateProfile] = useUpdateProfile(auth);
     const { register, handleSubmit } = useForm();
     
